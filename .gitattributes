@@ -1,0 +1,6 @@
+# Force GitHub to treat .uasset files as UnrealScript (closest to Blueprints)
+*.uasset linguist-language=UnrealScript
+
+# C++ files are detected normally, but we can specify just to be sure
+*.cpp linguist-language=C++
+*.h linguist-language=C++
