@@ -12,7 +12,7 @@ This repository is structured around a multi-week Unreal Engine bootcamp coverin
 
 | 🧠 Topic | 🔧 Theory & Concepts | 🎮 Practice |
 |--------|----------------------|------------|
-| **1️⃣ Introduction, Context, and Motivation** | Icebreaker & Industry Insights<br>Setup and Intro to Unreal Engine | – |
+| **1️⃣ Introduction, Context, and Motivation** | Icebreaker & Industry Insights| Setup and Intro to Unreal Engine  |
 | **2️⃣ Core Blueprint Concepts** | Blueprint Programming Deep Dive | Guided Practice & Feedback |
 | **3️⃣ Blueprint Architecture & Communication** | Blueprint Communication & Engine Architecture | Practice: Communication, Components, Events |
 | **4️⃣ Dynamic Logic, Timelines & Actor Lifecycles** | Timing, Animation & Actor Control | Practice: Timelines, Events, Spawning Logic |
