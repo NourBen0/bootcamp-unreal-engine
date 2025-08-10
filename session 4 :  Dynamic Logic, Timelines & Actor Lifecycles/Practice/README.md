@@ -22,7 +22,14 @@ The exercise is broken down into steps to help you fully understand the underlyi
 <img width="433" height="111" alt="Screenshot 2025-08-10 151636" src="https://github.com/user-attachments/assets/5f99819f-635a-4032-8d31-06306f2d037e" /> <img width="440" height="101" alt="Screenshot 2025-08-10 151703" src="https://github.com/user-attachments/assets/f47df966-d760-4a87-a4b9-bc319d515962" />
 
 
-   - If you can't find these assets, make sure to add the **StarterContent** to your project.
+   - If you can't find these assets, make sure to add the **StarterContent** to your project by following these steps:  
+  1. Click on **+ Add** in the Content Browser.  
+  2. Select **Add Feature or Content Pack**.  
+  3. Choose **Content** from the options.  
+  4. Select **Starter Content** and add it to your project.
+     <img width="311" height="188" alt="Screenshot 2025-08-10 151853" src="https://github.com/user-attachments/assets/a5686348-88a3-4af8-8e3a-632e4918f549" />
+
+
 
 
 4. **Add a Box Collision**  
