@@ -16,6 +16,8 @@ The exercise is broken down into steps to help you fully understand the underlyi
 
 2. **Add a Static Mesh**  
    - Inside the Blueprint, create and assign a Static Mesh for the door
+   <img width="331" height="356" alt="step2" src="https://github.com/user-attachments/assets/cdaa8fe5-9483-4be8-ba65-9c2321a3aca4" />
+
 
 3. **Add a Box Collider**  
    - Add a Box Collider component to define the detection zone  
