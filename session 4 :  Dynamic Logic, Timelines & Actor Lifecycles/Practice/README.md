@@ -17,6 +17,7 @@ The exercise is broken down into steps to help you fully understand the underlyi
 2. **Add a Static Mesh**
    - Inside the Blueprint, create and assign a Static Mesh for the door.  
    <img width="331" height="356" alt="step2" src="https://github.com/user-attachments/assets/cdaa8fe5-9483-4be8-ba65-9c2321a3aca4" />
+   
    - You should assign **SM_DoorFrame** as the main mesh, and inside it, add **SM_Door**.
 <img width="433" height="111" alt="Screenshot 2025-08-10 151636" src="https://github.com/user-attachments/assets/5f99819f-635a-4032-8d31-06306f2d037e" /> <img width="440" height="101" alt="Screenshot 2025-08-10 151703" src="https://github.com/user-attachments/assets/f47df966-d760-4a87-a4b9-bc319d515962" />
 
