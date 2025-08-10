@@ -9,6 +9,7 @@ The exercise is broken down into steps to help you fully understand the underlyi
 1. **Create a new Blueprint**  
    - Add a new Blueprint Class  
    - Choose **Actor** as the parent class
+![Create Blueprint](step1.png)
 
 2. **Add a Static Mesh**  
    - Inside the Blueprint, create and assign a Static Mesh for the door
