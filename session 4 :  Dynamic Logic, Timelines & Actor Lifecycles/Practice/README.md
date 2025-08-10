@@ -27,8 +27,7 @@ The exercise is broken down into steps to help you fully understand the underlyi
   ==> Select **Add Feature or Content Pack**.  
   ==> Choose **Content** from the options.  
   ==> Select **Starter Content** and add it to your project.
-     
-<img width="311" height="188" alt="Screenshot 2025-08-10 151853" src="https://github.com/user-attachments/assets/a5686348-88a3-4af8-8e3a-632e4918f549" />
+     <img width="311" height="188" alt="Screenshot 2025-08-10 151853" src="https://github.com/user-attachments/assets/a5686348-88a3-4af8-8e3a-632e4918f549" />
 
 
 
