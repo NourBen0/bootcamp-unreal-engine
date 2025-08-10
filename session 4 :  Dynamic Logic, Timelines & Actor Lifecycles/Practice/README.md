@@ -10,7 +10,7 @@ The exercise is broken down into steps to help you fully understand the underlyi
    - Add a new Blueprint Class  
    - Choose **Actor** as the parent class
      
-![Create Blueprint]("bootcamp-unreal-engine/session 4 : Dynamic Logic, Timelines & Actor Lifecycles/Practice/screenshots/step1.png")
+<img width="397" height="227" alt="step1" src="https://github.com/user-attachments/assets/22e36ee5-d4f1-4849-8682-396f064916f6" />
 
 2. **Add a Static Mesh**  
    - Inside the Blueprint, create and assign a Static Mesh for the door
