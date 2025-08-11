@@ -62,6 +62,8 @@ To expand this into your **Version 2 door open/close interaction**, here’s wha
 
 ========== Version 2 =============
 
+In Version 2, we improve the door interaction by enabling and disabling input based on whether the player is inside the collision box or not. This way, the player can press the E key only when close enough to the door, making the interaction more realistic.
+
 ==> **Select** the **Box Collision** component in the Components panel.  
 ==> In the **Details** panel, scroll down to **Events** and click **+** next to:
    - **On Component Begin Overlap** → creates event for entering the box.
@@ -86,6 +88,75 @@ To expand this into your **Version 2 door open/close interaction**, here’s wha
 
 <img width="1028" height="516" alt="Screenshot 2025-08-10 140116" src="https://github.com/user-attachments/assets/af2c038a-2996-469d-a2ef-07807bcbb028" />
 
+
+========== Version 3 =============
+
+In Version 3, we replace the simple Print String with actual door movement. When the player presses the E key, the door will open by rotating 90 degrees. When pressing E again, the door will close back to its original position.
+
+What you’ll add:
+==> Add a Timeline
+   - In the Blueprint Event Graph, Right-click and search for Add Timeline, name it OpenCloseDoor.
+   - Double-click the Timeline node to open the timeline editor.
+   - Add a Float Track named opendoor.
+   - Set the length to about 1 second.
+   - Add two keyframes:
+   ==> At time 0 → value 0
+   ==> At time 1 → value 90
+   This float will represent the door’s rotation in degrees.
+
+<img width="1041" height="451" alt="image" src="https://github.com/user-attachments/assets/be7520bb-2d47-4c9c-b282-416a91651b3e" />
+
+
+2. Create Variables
+Create a Boolean variable called bIsDoorOpen.
+
+This will track whether the door is currently open or closed.
+
+3. Set up the FlipFlop Node
+In the Event Graph, after the Input Action E (Pressed) node:
+
+Add a FlipFlop node.
+
+On A output:
+
+Set bIsDoorOpen to True.
+
+Play the DoorTimeline forward.
+
+On B output:
+
+Set bIsDoorOpen to False.
+
+Play the DoorTimeline in reverse.
+
+4. Update Door Rotation on Timeline Update
+From the DoorTimeline node, drag the Update pin.
+
+Connect it to a Set Relative Rotation node for your Door Static Mesh component.
+
+Use the DoorRotation float track value to set the Yaw rotation.
+
+For example, create a Make Rotator node:
+
+Set Yaw = DoorRotation value
+
+Keep Pitch and Roll at 0.
+
+Connect the output rotator to the Set Relative Rotation node on the door mesh.
+
+5. Compile and Test
+When you enter the collision box, input is enabled.
+
+Press E once → the door smoothly opens by rotating 90 degrees.
+
+Press E again → the door smoothly closes back.
+
+Visual Blueprint Flow Summary:
+Input Action E Pressed → FlipFlop →
+A: Set bIsDoorOpen True + Play Timeline Forward
+B: Set bIsDoorOpen False + Play Timeline Reverse
+
+Timeline Update → Set Relative Rotation on door mesh (Yaw = Timeline float)
 
 
 
