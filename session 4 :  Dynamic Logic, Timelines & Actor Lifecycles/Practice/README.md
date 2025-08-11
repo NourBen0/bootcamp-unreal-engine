@@ -39,6 +39,7 @@ The exercise is broken down into steps to help you fully understand the underlyi
 
 4. **Basic Blueprint Programming** 
 ========== Version 1 =============
+
 ==> **Select** the **Box Collision** component in the Components panel.  
 ==> In the **Details** panel, scroll down to **Events** and click **+** next to:
    - **On Component Begin Overlap** → creates event for entering the box.
