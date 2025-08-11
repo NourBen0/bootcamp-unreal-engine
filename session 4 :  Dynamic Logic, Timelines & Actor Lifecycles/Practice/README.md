@@ -46,8 +46,10 @@ The exercise is broken down into steps to help you fully understand the underlyi
 ==> In the **Details** panel, scroll down to **Events** and click **+** next to:
    - **On Component Begin Overlap** → creates event for entering the box.
    - **On Component End Overlap** → creates event for leaving the box.
+     
 ==> In the Event Graph:
    - From **Begin Overlap** event → **Drag wire** → **Add “Print String” node** → set text to `"In"`.
    - From **End Overlap** event → **Drag wire** → **Add “Print String” node** → set text to `"Out"`.
+     
 ==> **Compile** and **Save** the Blueprint.
 
