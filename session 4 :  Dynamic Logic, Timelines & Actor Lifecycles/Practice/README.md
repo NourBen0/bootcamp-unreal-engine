@@ -100,64 +100,26 @@ What you’ll add:
    - Add a Float Track named opendoor.
    - Set the length to about 1 second.
    - Add two keyframes:
+     
    ==> At time 0 → value 0
    ==> At time 1 → value 90
+   
    This float will represent the door’s rotation in degrees.
 
 <img width="1041" height="451" alt="image" src="https://github.com/user-attachments/assets/be7520bb-2d47-4c9c-b282-416a91651b3e" />
 
 
-2. Create Variables
-Create a Boolean variable called bIsDoorOpen.
-
-This will track whether the door is currently open or closed.
-
-3. Set up the FlipFlop Node
-In the Event Graph, after the Input Action E (Pressed) node:
-
-Add a FlipFlop node.
-
-On A output:
-
-Set bIsDoorOpen to True.
-
-Play the DoorTimeline forward.
-
-On B output:
-
-Set bIsDoorOpen to False.
-
-Play the DoorTimeline in reverse.
-
-4. Update Door Rotation on Timeline Update
-From the DoorTimeline node, drag the Update pin.
-
-Connect it to a Set Relative Rotation node for your Door Static Mesh component.
-
-Use the DoorRotation float track value to set the Yaw rotation.
-
-For example, create a Make Rotator node:
-
-Set Yaw = DoorRotation value
-
-Keep Pitch and Roll at 0.
-
-Connect the output rotator to the Set Relative Rotation node on the door mesh.
-
-5. Compile and Test
-When you enter the collision box, input is enabled.
-
-Press E once → the door smoothly opens by rotating 90 degrees.
-
-Press E again → the door smoothly closes back.
-
-Visual Blueprint Flow Summary:
-Input Action E Pressed → FlipFlop →
-A: Set bIsDoorOpen True + Play Timeline Forward
-B: Set bIsDoorOpen False + Play Timeline Reverse
-
-Timeline Update → Set Relative Rotation on door mesh (Yaw = Timeline float)
-
+==> Use FlipFlop on Input Action
+  - From the Input Action E (Pressed) node:
+    ==> Add a FlipFlop node.
+    ==> On A output → Play DoorTimeline forward (opens the door).
+    ==> On B output → Play DoorTimeline in reverse (closes the door).
+    
+==> Set Door Rotation on Timeline Update
+  - On the Timeline’s Update pin:
+    ==> Use the DoorRotation float track value to set the door’s rotation yaw.
+    ==> Connect it to a Set Relative Rotation node targeting the door Static Mesh variable.
+    ==> Use a Make Rotator node with yaw = DoorRotation and pitch/roll = 0.
 
 
 
