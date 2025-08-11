@@ -55,4 +55,45 @@ The exercise is broken down into steps to help you fully understand the underlyi
 
 <img width="595" height="511" alt="Screenshot 2025-08-10 135444" src="https://github.com/user-attachments/assets/2f1a51cc-26ea-4420-9aa8-13eb20946ef5" />
 
+Great! You’ve set up the **Input Enable/Disable** on overlap, and the **E key press** prints “IN” and “OUT” based on key press state, which is a solid foundation.
+
+To expand this into your **Version 2 door open/close interaction**, here’s what you need to add or modify based on your current setup:
+
+
+========== Version 2 =============
+
+
+==> **Add a `PlayerInZone` Boolean variable**
+
+   * On **Begin Overlap**, set `PlayerInZone = true`
+   * On **End Overlap**, set `PlayerInZone = false`
+
+==> **Modify the E key input logic**
+
+   * Before doing anything on the E key press, check if `PlayerInZone` is `true` (using a Branch node)
+   * If true, execute the FlipFlop logic for opening/closing the door
+
+==> **Add a FlipFlop node after the E key pressed event**
+
+   * On **A**: Play the Timeline **forward** (door opens)
+   * On **B**: Play the Timeline **reverse** (door closes)
+
+==> **Create and add the Timeline node named `DoorTimeline`**
+
+   * Timeline drives a float `Alpha` from 0 to 1 in 1 second
+   * Use `Alpha` to Lerp between closed and open door rotations
+
+==> **Use the Timeline update output to rotate the door**
+
+   * Use `Lerp (Rotator)` node with `ClosedRotation` and `OpenRotation`
+   * Set the door Static Mesh rotation accordingly every update tick from the Timeline
+
+
+<img width="1028" height="516" alt="Screenshot 2025-08-10 140116" src="https://github.com/user-attachments/assets/af2c038a-2996-469d-a2ef-07807bcbb028" />
+
+
+
+
+
+
 
