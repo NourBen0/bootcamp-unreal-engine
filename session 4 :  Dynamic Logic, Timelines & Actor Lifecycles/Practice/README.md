@@ -77,6 +77,11 @@ To expand this into your **Version 2 door open/close interaction**, here’s wha
       - Connect the Player Controller as the input target.
       ==>This disables the input when the player leaves the box, so the door will no longer respond to key presses.
 
+==> Add Input Action for ‘E’ Key
+
+   - In the Blueprint Event Graph, add an Input Action for the E key
+   - Connect the Pressed execution pin to a Print String "IN" node.
+   - Connect the Released execution pin to a Print String "OUT" node.
 
 
 <img width="1028" height="516" alt="Screenshot 2025-08-10 140116" src="https://github.com/user-attachments/assets/af2c038a-2996-469d-a2ef-07807bcbb028" />
