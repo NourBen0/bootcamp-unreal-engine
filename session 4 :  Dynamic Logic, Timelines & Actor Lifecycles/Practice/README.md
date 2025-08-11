@@ -53,3 +53,6 @@ The exercise is broken down into steps to help you fully understand the underlyi
      
 ==> **Compile** and **Save** the Blueprint.
 
+<img width="595" height="511" alt="Screenshot 2025-08-10 135444" src="https://github.com/user-attachments/assets/2f1a51cc-26ea-4420-9aa8-13eb20946ef5" />
+
+
