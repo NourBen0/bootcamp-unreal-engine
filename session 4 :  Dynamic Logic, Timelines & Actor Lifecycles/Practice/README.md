@@ -62,31 +62,21 @@ To expand this into your **Version 2 door open/close interaction**, here’s wha
 
 ========== Version 2 =============
 
+==> **Select** the **Box Collision** component in the Components panel.  
+==> In the **Details** panel, scroll down to **Events** and click **+** next to:
+   - **On Component Begin Overlap** → creates event for entering the box.
+   - **On Component End Overlap** → creates event for leaving the box.
+==> Add Input Enable/Disable on Overlap
+   - From On Component Begin Overlap event:
+      - Drag a wire and Add Enable Input node.
+      - Connect the Player Controller as the input target.
+      ==> This means when the player enters the collision box, input for this Blueprint is enabled (so it can receive keyboard input).
 
-==> **Add a `PlayerInZone` Boolean variable**
+   - From On Component End Overlap event:
+      - Drag a wire and Add Disable Input node.
+      - Connect the Player Controller as the input target.
+      ==>This disables the input when the player leaves the box, so the door will no longer respond to key presses.
 
-   * On **Begin Overlap**, set `PlayerInZone = true`
-   * On **End Overlap**, set `PlayerInZone = false`
-
-==> **Modify the E key input logic**
-
-   * Before doing anything on the E key press, check if `PlayerInZone` is `true` (using a Branch node)
-   * If true, execute the FlipFlop logic for opening/closing the door
-
-==> **Add a FlipFlop node after the E key pressed event**
-
-   * On **A**: Play the Timeline **forward** (door opens)
-   * On **B**: Play the Timeline **reverse** (door closes)
-
-==> **Create and add the Timeline node named `DoorTimeline`**
-
-   * Timeline drives a float `Alpha` from 0 to 1 in 1 second
-   * Use `Alpha` to Lerp between closed and open door rotations
-
-==> **Use the Timeline update output to rotate the door**
-
-   * Use `Lerp (Rotator)` node with `ClosedRotation` and `OpenRotation`
-   * Set the door Static Mesh rotation accordingly every update tick from the Timeline
 
 
 <img width="1028" height="516" alt="Screenshot 2025-08-10 140116" src="https://github.com/user-attachments/assets/af2c038a-2996-469d-a2ef-07807bcbb028" />
