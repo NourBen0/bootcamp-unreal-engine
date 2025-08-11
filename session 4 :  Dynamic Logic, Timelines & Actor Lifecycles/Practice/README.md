@@ -113,14 +113,18 @@ What you’ll add:
   - From the Input Action E (Pressed) node:
     
     ==> Add a FlipFlop node.
+    
     ==> On A output → Play DoorTimeline forward (opens the door).
+    
     ==> On B output → Play DoorTimeline in reverse (closes the door).
     
 ==> Set Door Rotation on Timeline Update
   - On the Timeline’s Update pin:
     
     ==> Use the DoorRotation float track value to set the door’s rotation yaw.
+    
     ==> Connect it to a Set Relative Rotation node targeting the door Static Mesh variable.
+    
     ==> Use a Make Rotator node with yaw = DoorRotation and pitch/roll = 0.
 
 <img width="718" height="450" alt="Screenshot 2025-08-11 144513" src="https://github.com/user-attachments/assets/9c5d47af-c57f-4bd7-8c84-a37072deba9e" />
