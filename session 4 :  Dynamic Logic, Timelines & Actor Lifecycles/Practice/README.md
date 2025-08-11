@@ -37,7 +37,9 @@ The exercise is broken down into steps to help you fully understand the underlyi
    - This collision will detect when the player enters the zone and trigger the door opening logic
 <img width="327" height="180" alt="Screenshot 2025-08-10 150611" src="https://github.com/user-attachments/assets/3c778405-b8aa-4841-917f-980fbd3491c8" />
 
-4. **Basic Blueprint Programming** 
+
+4. **Basic Blueprint Programming**
+   
 ========== Version 1 =============
 
 ==> **Select** the **Box Collision** component in the Components panel.  
