@@ -120,12 +120,19 @@ What you’ll add:
     
 ==> Set Door Rotation on Timeline Update
   - On the Timeline’s Update pin:
-    
-    ==> Use the DoorRotation float track value to set the door’s rotation yaw.
-    
-    ==> Connect it to a Set Relative Rotation node targeting the door Static Mesh variable.
-    
-    ==> Use a Make Rotator node with yaw = DoorRotation and pitch/roll = 0.
+    ==> Once the Timeline starts playing (forward or reverse), it outputs values every frame along the opendoor float track (from our keyframes: 0 → 90 or 90 → 0).
+  
+  - From the Update pin on the Timeline:
+    -  Get your Door Mesh (the part that should move).
+    - Add a Set Relative Rotation node to rotate it.
+    - Use a Lerp Rotator node
+    - Plug the Lerp Rotator into Set Relative Rotation.
+    - Why this works
+      ==> Every frame while the Timeline is running, the opendoor value updates smoothly.
+      ==> That value is applied directly to the door’s yaw rotation.
+      ==> Playing forward makes yaw go 0 → 90 (open), playing reverse makes yaw go 90 → 0 (close).
+      ==> Because it’s Set Relative Rotation, the door rotates relative to its hinge, not the world.
+
 
 <img width="718" height="450" alt="Screenshot 2025-08-11 144513" src="https://github.com/user-attachments/assets/9c5d47af-c57f-4bd7-8c84-a37072deba9e" />
 
