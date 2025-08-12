@@ -187,8 +187,8 @@ What you’ll add:
 ==> Create a new Blueprint: BP_Button
     - Add a new Blueprint Class → Actor → name it BP_Button.
     - Inside BP_Button, add:
-    - A Static Mesh (for the button visual).
-    - A Box Collision (to detect player proximity).
+    ==> A Static Mesh (for the button visual).
+    ==> A Box Collision (to detect player proximity).
 
 ==> Add Input Activation to BP_Button
     - Just like the door, enable input only when the player is overlapping the collision box.
@@ -196,7 +196,9 @@ What you’ll add:
     - When the player presses E near the button, the button will activate.
 
 ==> Create a Variable of type BP_Door
+    
     - Inside BP_Button, create a new variable of type BP_Door (Object Reference).
+    
     - Make this variable Instance Editable so you can assign a door to this button in the editor.
 
 ==> Unlock Door from Button
