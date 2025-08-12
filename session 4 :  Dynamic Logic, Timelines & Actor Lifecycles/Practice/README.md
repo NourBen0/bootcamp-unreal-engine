@@ -178,6 +178,31 @@ What you’ll add:
 <img width="648" height="353" alt="Screenshot 2025-08-12 220353" src="https://github.com/user-attachments/assets/4d680fe0-fb17-40c8-b6c0-d2b3786bb348" />
 
 
+========== Version 5 =============
+
+In Version 5, we expand the system by adding a new Blueprint BP_Button that acts as a button or switch to unlock the door. This introduces interaction between Blueprints and demonstrates how to reference one Blueprint from another.
+
+What you’ll add:
+
+==> Create a new Blueprint: BP_Button
+    - Add a new Blueprint Class → Actor → name it BP_Button.
+    - Inside BP_Button, add:
+    - A Static Mesh (for the button visual).
+    - A Box Collision (to detect player proximity).
+
+==> Add Input Activation to BP_Button
+    - Just like the door, enable input only when the player is overlapping the collision box.
+    - Add input action for the E key.
+    - When the player presses E near the button, the button will activate.
+
+==> Create a Variable of type BP_Door
+    - Inside BP_Button, create a new variable of type BP_Door (Object Reference).
+    - Make this variable Instance Editable so you can assign a door to this button in the editor.
+
+==> Unlock Door from Button
+
+
+
 
 
 
