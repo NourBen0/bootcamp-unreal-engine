@@ -194,6 +194,9 @@ What you’ll add:
    
    ==> A Box Collision (to detect player proximity).
 
+   <img width="475" height="401" alt="Screenshot 2025-08-12 231749" src="https://github.com/user-attachments/assets/73d9f176-1e3a-463d-9bdb-eac05e73670e" />
+
+
 ==> Add Input Activation to BP_Button
 
    - Just like the door, enable input only when the player is overlapping the collision box.
@@ -208,10 +211,13 @@ What you’ll add:
      
    - Make this variable Instance Editable so you can assign a door to this button in the editor.
 
+<img width="347" height="161" alt="Screenshot 2025-08-12 231852" src="https://github.com/user-attachments/assets/1bfb99c2-a113-4432-aff4-4a6795838048" />
+
+
 ==> Unlock Door from Button
+   - When the player presses E on the button: Check if the BP_Door variable is valid.
 
-
-
+<img width="822" height="248" alt="Screenshot 2025-08-12 231833" src="https://github.com/user-attachments/assets/65b73d94-0a43-4434-8564-2510b85804f0" />
 
 
 
