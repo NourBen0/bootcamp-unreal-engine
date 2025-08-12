@@ -166,11 +166,17 @@ What you’ll add:
    - If isLocked is false, allow the door to open or close as usual.
    - If isLocked is true, do nothing or optionally print a message like "Door is locked".
 
+<img width="803" height="513" alt="Screenshot 2025-08-12 220247" src="https://github.com/user-attachments/assets/0c2fa922-2b6b-4c57-9795-e8db9e4d300a" />
+
+
 ==> Use Multiple Instances
    - Place multiple instances of your door Blueprint in your level.
    - Select each door instance in the level editor.
    - In the Details panel, you will see the isLocked checkbox.
    - Set it to true or false per instance to control which doors are locked.
+
+<img width="648" height="353" alt="Screenshot 2025-08-12 220353" src="https://github.com/user-attachments/assets/4d680fe0-fb17-40c8-b6c0-d2b3786bb348" />
+
 
 
 
