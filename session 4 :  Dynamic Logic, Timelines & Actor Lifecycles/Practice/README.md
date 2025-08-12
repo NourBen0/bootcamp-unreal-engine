@@ -219,5 +219,7 @@ What you’ll add:
 
 <img width="822" height="248" alt="Screenshot 2025-08-12 231833" src="https://github.com/user-attachments/assets/65b73d94-0a43-4434-8564-2510b85804f0" />
 
+<img width="460" height="272" alt="Screenshot 2025-08-12 232133" src="https://github.com/user-attachments/assets/b179114e-0094-4218-a1d6-a3b0ec7e4775" />
+
 
 
