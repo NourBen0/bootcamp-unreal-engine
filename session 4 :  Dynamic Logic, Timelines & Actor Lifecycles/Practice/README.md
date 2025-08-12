@@ -187,10 +187,12 @@ What you’ll add:
 ==> Create a new Blueprint: BP_Button
 
    - Add a new Blueprint Class → Actor → name it BP_Button.
-   - 
+     
    - Inside BP_Button, add:
-    ==> A Static Mesh (for the button visual).
-    ==> A Box Collision (to detect player proximity).
+     
+   ==> A Static Mesh (for the button visual).
+   
+   ==> A Box Collision (to detect player proximity).
 
 ==> Add Input Activation to BP_Button
 
