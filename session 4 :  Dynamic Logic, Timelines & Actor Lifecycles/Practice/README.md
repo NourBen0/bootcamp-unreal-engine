@@ -150,10 +150,13 @@ What you’ll add:
    - In the Blueprint, create a new Boolean variable named isLocked.
    - Set the default value to false (unlocked).
    - Make this variable Instance Editable and Public:
+     
      ==> Select the variable.
+     
      ==> In the Details panel, check Instance Editable and Expose on Spawn.
 
 <img width="282" height="96" alt="Screenshot 2025-08-12 220010" src="https://github.com/user-attachments/assets/b4918e82-45c0-424c-bbe1-f73ec4b2e1ae" />
+
 <img width="452" height="171" alt="Screenshot 2025-08-12 220036" src="https://github.com/user-attachments/assets/0d61f5ef-22e1-4295-9d51-9902263aa5d4" />
 
 
