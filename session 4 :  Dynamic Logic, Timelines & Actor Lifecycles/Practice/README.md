@@ -140,6 +140,32 @@ What you’ll add:
 
 <img width="718" height="450" alt="Screenshot 2025-08-11 144513" src="https://github.com/user-attachments/assets/9c5d47af-c57f-4bd7-8c84-a37072deba9e" />
 
+========== Version 4 =============
+
+In Version 4, we add a lock mechanism to the door, controlled by a new Boolean variable called isLocked. This allows some doors to be locked (cannot open), and others unlocked (can open).
+
+What you’ll add:
+===> Add a Boolean Variable
+   - In the Blueprint, create a new Boolean variable named isLocked.
+   - Set the default value to false (unlocked).
+   - Make this variable Instance Editable and Public:
+     ==> Select the variable.
+     ==> In the Details panel, check Instance Editable and Expose on Spawn.
+
+This lets you customize the lock state for each door placed in your level.
+
+==> Modify the Door Open Logic
+    - Before opening the door (when E is pressed), add a branch (if condition).
+    - Connect the branch condition to isLocked.
+    - If isLocked is false, allow the door to open or close as usual.
+    - If isLocked is true, do nothing or optionally print a message like "Door is locked".
+
+==> Use Multiple Instances
+   - Place multiple instances of your door Blueprint in your level.
+   - Select each door instance in the level editor.
+   - In the Details panel, you will see the isLocked checkbox.
+   - Set it to true or false per instance to control which doors are locked.
+
 
 
 
