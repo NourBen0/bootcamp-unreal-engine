@@ -128,9 +128,13 @@ What you’ll add:
     - Use a Lerp Rotator node
     - Plug the Lerp Rotator into Set Relative Rotation.
     - Why this works
+      
       ==> Every frame while the Timeline is running, the opendoor value updates smoothly.
+    
       ==> That value is applied directly to the door’s yaw rotation.
+      
       ==> Playing forward makes yaw go 0 → 90 (open), playing reverse makes yaw go 90 → 0 (close).
+      
       ==> Because it’s Set Relative Rotation, the door rotates relative to its hinge, not the world.
 
 
