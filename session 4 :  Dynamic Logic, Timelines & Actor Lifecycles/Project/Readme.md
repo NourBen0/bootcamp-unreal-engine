@@ -189,39 +189,73 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
 
 > In the next parts, we’ll refactor the same scenario using: **Casting**, **Blueprint Interfaces**, and **Event Dispatchers** — showing when each pattern is cleaner, safer, or more scalable.
 
-STEP 2 — Using Casting (via GameMode)
+Perfect 👍 thanks for pasting the full **Part 1 (Direct Communication)** style.
+Here’s **Part 2 (Casting)** rewritten in exactly the same style and formatting so your README flows consistently:
 
-Goal: Replace direct references (e.g., BP_Manager) with a more flexible communication using Casting.
+---
 
-Setup
+# Blueprint Communication – Part 2: **Casting (via GameMode)**
 
-GameMode
+In this second version, we refactor the project to remove **direct references** and instead use **Casting** through the active **GameMode**.
 
-Create a new Blueprint → BP_ThirdPersonGameMode (child of GameModeBase).
+* The player still faces **4 barriers** (one active) and **3 collectible boxes**.
+* Barriers open the same way as before (`isOK` check).
+* But now, **boxes no longer store a reference to BP\_GameManager**.
+* Instead, they **Cast to BP\_ThirdPersonGameMode** and call a function there to update the score and handle Game Over.
 
-Add a function CalcScore(x : float) inside it.
+---
 
-Logic:
+## STEP 1 — Create **BP\_ThirdPersonGameMode**
 
-If x > 0 → add +2 points and hide the box.
+**Goal:** centralize score & game logic inside the **GameMode**, replacing `BP_GameManager`.
 
-If x ≤ 0 → subtract 1 point and end the game.
+1. **Blueprint**
 
-Remove BP_Manager
+   * Create → **Blueprint Class → GameModeBase** → name it `BP_ThirdPersonGameMode`.
+   * Set it as the active **GameMode** in **Project Settings → Maps & Modes**.
 
-Previously, the box called CalcScore directly on a BP_Manager reference.
+2. **Variables**
 
-Delete the BP_Manager system.
+   * `Score` (Integer) → default `0`.
 
-Box Blueprint (BP_Box)
+3. **Function CalcScore(x: float)**
 
-On overlap with the player:
+   * If `x > 0`:
 
-Get the Game Mode → Get Game Mode.
+     * `Score += 2`
+     * Hide the box (Set Hidden In Game, disable collision).
+   * If `x ≤ 0`:
 
-**Cast to BP_ThirdPersonGameMode`.
+     * `Score -= 1`
+     * Print "Game Over"
+     * (Optional) Disable input / trigger Game Over UI.
 
-If cast succeeds → call CalcScore(x).
+---
 
-Else → optional Print String "GameMode not found".
+## STEP 2 — Update **BP\_BoxCollectible**
+
+**Goal:** instead of holding a direct `GameManager` reference, the Box communicates by **Casting to GameMode**.
+
+1. On overlap:
+
+   * Call the local `calcul_x()` function (same as Part 1).
+   * Get the active GameMode → **Get Game Mode**.
+   * **Cast to BP\_ThirdPersonGameMode**.
+   * If cast succeeds → call `CalcScore(x)`.
+   * Else → Print String `"GameMode not found"`.
+   * The old `BP_GameManager` Actor is no longer needed.
+   * Delete it from the Level.
+   * All score logic is now centralized inside **GameMode**.
+     
+<img width="1427" height="550" alt="image" src="https://github.com/user-attachments/assets/d6d91bac-c342-4c3e-b657-d416e9e4d073" />
+
+## Why this is “Casting”
+
+* The Box doesn’t directly reference another Actor anymore.
+* Instead, it uses Unreal’s **Get GameMode + Cast To** system.
+* This makes the design more **modular**:
+
+  * Only one place (GameMode) controls scoring & game-over.
+  * You can swap or extend the logic without touching every Box.
+
 
