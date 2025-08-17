@@ -37,35 +37,28 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
 3. **Variables**
 
 * `isOK` (Boolean) → **Instance Editable** (checked) → default **false**.
-* `ClosedYaw` (Float) → default **0.0**.
-* `OpenYaw` (Float) → default **90.0**.
-* `OpenDuration` (Float) → default **1.0**.
-* `bIsOpen` (Boolean) → default **false** (runtime state).
 
-4. **Input Enable/Disable** (direct, local)
+4. **Interaction **
 
-* On **Box BeginOverlap** → **Enable Input** (PlayerController).
-* On **Box EndOverlap** → **Disable Input**.
-
-5. **Interaction (E key)**
-
-* Add **Input Action E (Pressed)**.
+* Select the **Box Collision** → add the **OnComponentBeginOverlap** event.
 * **Branch** → `isOK`?
-
+  
   * **True**: Toggle open state.
 
     * If `bIsOpen` is **false** → **Play** timeline forward (open) and set `bIsOpen = true` on finish.
     * Else → **Reverse** timeline (close) and set `bIsOpen = false` on finish.
   * **False**: Optional **Print** "Barrier inactive".
 
-6. **Timeline (Open/Close)**
+6. **Timeline (Rotation)**
 
-* Add **Timeline** `TL_OpenClose` (Length = `OpenDuration`).
+* Add **Timeline** `Rotation` (Length = `1s`).
 * **Float Track** `Alpha` with keys: (0,0) → (1,1).
 * On **Update**:
 
   * **Lerp (Rotator)** from (0,0,`ClosedYaw`) to (0,0,`OpenYaw`) using `Alpha`.
   * **Set Relative Rotation** on the Static Mesh.
+    
+<img width="1300" height="657" alt="image" src="https://github.com/user-attachments/assets/41ce81a2-b30d-4166-b364-efc93a322d44" />
 
 
 ---
