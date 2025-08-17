@@ -95,6 +95,8 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
 
 4. **Place** one instance in the Level.
 
+<img width="1438" height="817" alt="image" src="https://github.com/user-attachments/assets/956f4997-dacb-4ada-86d9-457ad3702ca2" />
+
 ---
 
 ## STEP 4 — Create **BP\_BoxCollectible**
