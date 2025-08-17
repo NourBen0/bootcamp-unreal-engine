@@ -246,6 +246,9 @@ In this second version, we refactor the project to remove **direct references** 
    * The old `BP_GameManager` Actor is no longer needed.
    * Delete it from the Level.
    * All score logic is now centralized inside **GameMode**.
+
+<img width="1287" height="707" alt="image" src="https://github.com/user-attachments/assets/91e7d3f4-29da-48aa-bf5d-8c8b8feaf479" />
+
      
 <img width="1427" height="550" alt="image" src="https://github.com/user-attachments/assets/d6d91bac-c342-4c3e-b657-d416e9e4d073" />
 
