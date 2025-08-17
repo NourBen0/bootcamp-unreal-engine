@@ -18,6 +18,7 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
 * **BP\_GameManager** (one actor): Stores score, exposes `AddScore()` and `EndGame()`.
 * **Player**: Any Character/Controller capable of overlapping and pressing **E** to interact.
 
+<img width="418" height="241" alt="Screenshot 2025-08-17 151748" src="https://github.com/user-attachments/assets/79c86bd2-02fa-4073-a526-cb5cf75ef181" />
 
 ---
 
