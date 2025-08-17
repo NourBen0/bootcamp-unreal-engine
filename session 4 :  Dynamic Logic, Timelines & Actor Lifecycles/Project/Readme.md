@@ -123,6 +123,8 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
 
 * Guard: if `a == 0` → return a very negative value or 0 and **Print** "Invalid a".
 * Else: `return -b / a`.
+  
+<img width="1007" height="521" alt="image" src="https://github.com/user-attachments/assets/d104d722-e576-4c82-9abf-c198ea9a2b4d" />
 
 5. **Interaction **
 
