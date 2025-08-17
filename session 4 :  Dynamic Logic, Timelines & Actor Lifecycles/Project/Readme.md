@@ -116,23 +116,16 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
 
 * `a` (Float) → Instance Editable.
 * `b` (Float) → Instance Editable.
-* `bInteractive` (Boolean) → default **true**.
 * `GameManager` (Object Reference → **BP\_GameManager**) → **Instance Editable**.
-* (Optional) `xDebug` (Float) → for on-screen debugging.
 
 4. **Function** `calcul_x()` → returns Float
 
 * Guard: if `a == 0` → return a very negative value or 0 and **Print** "Invalid a".
 * Else: `return -b / a`.
 
-5. **Input Enable/Disable**
+5. **Interaction **
 
-* On **Box BeginOverlap** → **Enable Input**.
-* On **Box EndOverlap** → **Disable Input**.
-
-6. **Interaction (E key)**
-
-* **Branch**: `bInteractive`?
+* **Branch**: 
 
   * **True** → `x = calcul_x()`; set `xDebug = x` (optional display).
 
@@ -164,6 +157,8 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
 * Place **4× BP\_barriere** if not already.
 
   * Ensure only one has `isOK = true`.
+
+<img width="1072" height="430" alt="image" src="https://github.com/user-attachments/assets/b9d22f82-14a7-4634-bec0-9675eb90d6ca" />
 
 **Test flow:**
 
