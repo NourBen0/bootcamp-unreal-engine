@@ -72,6 +72,8 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
   * Others remain `false`.
 * Test: Only the `true` barrier should respond to **E** and open.
 
+<img width="787" height="335" alt="image" src="https://github.com/user-attachments/assets/c57d0ee8-c37e-4682-8aca-35285545d95b" />
+
 ---
 
 ## STEP 3 — Create **BP\_GameManager** (Score & Game Over)
