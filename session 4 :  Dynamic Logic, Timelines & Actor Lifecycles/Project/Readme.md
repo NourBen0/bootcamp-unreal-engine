@@ -189,3 +189,39 @@ a lightweight project that demonstrates **Blueprint-to-Blueprint direct communic
 
 > In the next parts, we’ll refactor the same scenario using: **Casting**, **Blueprint Interfaces**, and **Event Dispatchers** — showing when each pattern is cleaner, safer, or more scalable.
 
+STEP 2 — Using Casting (via GameMode)
+
+Goal: Replace direct references (e.g., BP_Manager) with a more flexible communication using Casting.
+
+Setup
+
+GameMode
+
+Create a new Blueprint → BP_ThirdPersonGameMode (child of GameModeBase).
+
+Add a function CalcScore(x : float) inside it.
+
+Logic:
+
+If x > 0 → add +2 points and hide the box.
+
+If x ≤ 0 → subtract 1 point and end the game.
+
+Remove BP_Manager
+
+Previously, the box called CalcScore directly on a BP_Manager reference.
+
+Delete the BP_Manager system.
+
+Box Blueprint (BP_Box)
+
+On overlap with the player:
+
+Get the Game Mode → Get Game Mode.
+
+**Cast to BP_ThirdPersonGameMode`.
+
+If cast succeeds → call CalcScore(x).
+
+Else → optional Print String "GameMode not found".
+
