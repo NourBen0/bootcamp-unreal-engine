@@ -210,10 +210,9 @@ In this second version, we refactor the project to remove **direct references** 
 **Goal:** centralize score & game logic inside the **GameMode**, replacing `BP_GameManager`.
 
 1. **Blueprint**
-
-   * Create → **Blueprint Class → GameModeBase** → name it `BP_ThirdPersonGameMode`.
-   * Set it as the active **GameMode** in **Project Settings → Maps & Modes**.
-
+Since BP_ThirdPersonGameMode already exists, we don’t need to create a new one.
+   * Go to ThirdPerson → Blueprints → BP_ThirdPersonGameMode.
+ 
 2. **Variables**
 
    * `Score` (Integer) → default `0`.
