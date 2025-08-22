@@ -262,6 +262,101 @@ Since BP_ThirdPersonGameMode already exists, we don’t need to create a new one
   * Only one place (GameMode) controls scoring & game-over.
   * You can swap or extend the logic without touching every Box.
 
+Got it 👍 Here’s the **README-style Part 3** written in the exact same format as your previous parts (1 & 2):
+
+---
+
+# Blueprint Communication – Part 3: **Casting (via GameInstance)**
+
+In this third version, we fix the main issue of **Casting via GameMode**:
+
+👉 Every time we change level, the **GameMode resets** and the score goes back to `0`.
+
+The solution: store persistent data in a **GameInstance** Blueprint, which survives across levels.
+
+We’ll also create a teleportation actor (`BP_Teleportation`) to move the player into a second level (`Level2`), demonstrating how the score carries over.
+
+---
+
+## STEP 1 — Create **BP\_GameInstance**
+
+**Goal:** centralize score & game logic in the GameInstance so it persists across levels.
+
+1. **Blueprint**
+
+   * Add → **Blueprint Class → GameInstance** → name it `BP_GameInstance`.
+
+2. **Variables**
+
+   * `Score` (Integer) → default `0`.
+
+3. **Function `CalcScore(x: float)`**
+
+   * If `x > 0`:
+
+     * `Score += 2`
+     * Hide the interacted box (Set Hidden In Game, disable collision).
+
+   * If `x ≤ 0`:
+
+     * `Score -= 1`
+     * Print `"Game Over"`
+     * (Optional) Disable input / trigger Game Over UI.
+
+4. **Set Active GameInstance**
+
+   * Go to **Project Settings → Maps & Modes → Game Instance Class**.
+   * Set to **BP\_GameInstance**.
+
+✅ Now `Score` will persist across levels.
+
+---
+
+## STEP 2 — Update **BP\_BoxCollectible**
+
+**Goal:** instead of casting to GameMode, the Box communicates via **GameInstance**.
+
+1. On overlap:
+
+   * Call the local `calcul_x()` function.
+   * Use **Get Game Instance**.
+   * **Cast to BP\_GameInstance**.
+   * If cast succeeds → call `CalcScore(x)`.
+   * Else → Print String `"GameInstance not found"`.
+
+> This replaces the **GameMode cast** from Part 2.
+
+---
+
+## STEP 3 — Create **BP\_Teleportation**
+
+**Goal:** teleport the player into `Level2` and show that the score persists.
+
+1. **Blueprint**
+
+   * Add → **Blueprint Class → Actor** → name it `BP_Teleportation`.
+
+2. **Components**
+
+   * Add a **Static Mesh** (any shape for the teleport area).
+   * Add a **Box Collision** around it.
+
+3. **Logic**
+
+   * On **Box Collision → OnComponentBeginOverlap**:
+
+     * Get Overlapping Actor → check if it’s the Player.
+     * If yes → use **Open Level (Level2)**.
+
+---
+
+## STEP 4 — Create **Level2**
+
+1. Add a new Level → name it `Level2`.
+2. Place a few actors (barriers, boxes, or just a floor) for testing.
+3. Place another `BP_Teleportation` if you want to teleport back to the first level.
+
+
 
 
 
