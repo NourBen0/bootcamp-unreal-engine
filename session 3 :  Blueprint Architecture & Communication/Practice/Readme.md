@@ -286,11 +286,14 @@ We’ll also create a teleportation actor (`BP_Teleportation`) to move the playe
 
    * Add → **Blueprint Class → GameInstance** → name it `BP_GameInstance`.
 
+     <img width="765" height="227" alt="image" src="https://github.com/user-attachments/assets/9f7566ad-9c8a-469a-b833-fa03b963c4a7" />
+
+
 2. **Variables**
 
    * `Score` (Integer) → default `0`.
 
-3. **Function `CalcScore(x: float)`**
+3. **Function `CalulScore(x: float)`**
 
    * If `x > 0`:
 
@@ -303,10 +306,15 @@ We’ll also create a teleportation actor (`BP_Teleportation`) to move the playe
      * Print `"Game Over"`
      * (Optional) Disable input / trigger Game Over UI.
 
+<img width="792" height="526" alt="image" src="https://github.com/user-attachments/assets/3119208c-dd54-4185-98bf-68edde1e8c03" />
+
+
 4. **Set Active GameInstance**
 
    * Go to **Project Settings → Maps & Modes → Game Instance Class**.
    * Set to **BP\_GameInstance**.
+     
+<img width="495" height="132" alt="Screenshot 2025-08-22 131158" src="https://github.com/user-attachments/assets/7fd99faa-3430-4da1-a46e-958d6958e337" />
 
 ✅ Now `Score` will persist across levels.
 
@@ -325,6 +333,8 @@ We’ll also create a teleportation actor (`BP_Teleportation`) to move the playe
    * Else → Print String `"GameInstance not found"`.
 
 > This replaces the **GameMode cast** from Part 2.
+
+<img width="1120" height="528" alt="image" src="https://github.com/user-attachments/assets/cdbf146e-3b42-40f2-b25d-67fb00c1177a" />
 
 ---
 
@@ -347,6 +357,8 @@ We’ll also create a teleportation actor (`BP_Teleportation`) to move the playe
 
      * Get Overlapping Actor → check if it’s the Player.
      * If yes → use **Open Level (Level2)**.
+       
+<img width="828" height="317" alt="image" src="https://github.com/user-attachments/assets/39c30bf5-341c-42f2-be69-7a662314d9a5" />
 
 ---
 
