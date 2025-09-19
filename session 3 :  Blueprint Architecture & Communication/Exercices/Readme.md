@@ -1,143 +1,199 @@
 Practical Session: Collectible Blueprints and Score System
 
-In this session, we will practice Unreal Engine Blueprint logic by creating a simple collectible system where different objects modify a Score variable when collected.
+In this session, we will practice key Blueprint concepts through the exercise Collectible Blueprints and Score System.
 
-The exercise is broken down step by step to help you understand actor spawning, overlap detection, variable management, and interactivity.
+The exercise is broken down into steps to help you fully understand the underlying logic, including collision detection, variables, and inter-Blueprint communication.
 
 Step-by-Step Guide
-Create a Score Manager
+Create a GameMode with a Score Variable
 
-Before creating collectibles, we need a way to store and update the player’s score.
-
-Open your project and create a new Blueprint Class.
-
-Choose GameModeBase as the parent class → name it BP_GameMode.
+==> Create a new Blueprint Class
+==> Choose GameModeBase as the parent class
+==> Name it BP_GameMode
 
 Inside BP_GameMode:
 
 Add a new variable: Score (type: Integer).
 
-Set default value to 0.
+Set default value = 0.
 
-Make it Public/Instance Editable so it can be referenced from other Blueprints.
+Make it Public (Instance Editable) if needed for debugging.
 
-This Score variable will be updated whenever a collectible is picked up.
+📌 This variable will track the total player score whenever a collectible is picked up.
 
-Create BP_Sphere (Collectible: +10 Points)
+Screenshot 2025-09-19 120001
 
-Create a new Blueprint Class → Actor → name it BP_Sphere.
+Version 1: Basic Collectibles
 
-Inside BP_Sphere, add:
+In Version 1, we will create simple collectibles that update the Score variable when the player overlaps with them.
 
-Static Mesh (set to a Sphere mesh).
+BP_Sphere (+10 Points)
 
-Sphere Collision (make sure it covers the mesh).
+==> Create a new Blueprint Class → Actor → BP_Sphere
+==> Inside BP_Sphere:
 
-📌 Collision Setup
+Add Static Mesh → assign a Sphere mesh.
 
-Select Sphere Collision.
+Add Sphere Collision → scale to cover the mesh.
 
-In the Details panel → Events → Click + On Component Begin Overlap.
+==> Select Sphere Collision → In Details panel → Events → Click + On Component Begin Overlap
 
-📌 Blueprint Logic
+📌 Blueprint Logic:
 
 From Begin Overlap event → Cast to BP_GameMode.
 
-Get Score variable → Add 10 → Set Score.
+Get Score → Add 10 → Set Score.
 
-Destroy the actor (so the sphere disappears after collection).
+Add a Print String to display “Score: X”.
 
-💡 Tip: Add a Print String node after setting Score to display the updated value.
+Add Destroy Actor so the sphere disappears when collected.
 
-Create BP_Cube (Collectible: +5 Points)
+Screenshot 2025-09-19 120245
 
-Create new Blueprint Class → Actor → name it BP_Cube.
+BP_Cube (+5 Points)
 
-Add:
+==> Create Blueprint Actor → BP_Cube
+==> Add Static Mesh → Cube
+==> Add Box Collision
 
-Static Mesh (set to Cube).
+📌 Logic:
 
-Box Collision (cover the cube).
+On Begin Overlap → Cast to BP_GameMode
 
-📌 Logic
+Score = Score + 5
 
-On Begin Overlap:
+Print String → “+5 collected!”
 
-Cast to BP_GameMode.
+Destroy Actor
 
-Score = Score + 5.
+Screenshot 2025-09-19 120355
+
+BP_Cylinder (+25 Points)
+
+==> Create Blueprint Actor → BP_Cylinder
+==> Add Static Mesh → Cylinder
+==> Add Capsule Collision
+
+📌 Logic:
+
+On Begin Overlap → Cast to BP_GameMode
+
+Score = Score + 25
+
+Print String → “+25 collected!”
+
+Destroy Actor
+
+Screenshot 2025-09-19 120422
+
+BP_Cone (–15 Points)
+
+==> Create Blueprint Actor → BP_Cone
+==> Add Static Mesh → Cone
+==> Add Collision
+
+📌 Logic:
+
+On Begin Overlap → Cast to BP_GameMode
+
+Score = Score - 15
+
+Print String → “–15 penalty!”
+
+Destroy Actor
+
+Screenshot 2025-09-19 120518
+
+✅ At this stage, you can place multiple collectibles in your level and see the Score update in the Output Log using Print String.
+
+========== Version 2 =============
+
+In Version 2, we add feedback elements (sounds and particles) to make collecting items feel more interactive.
+
+==> Inside each collectible Blueprint:
+
+Add an Audio Component → assign a pickup sound.
+
+Add a Particle System Component → e.g., P_Explosion or P_Sparks.
+
+==> On Begin Overlap:
+
+Play Sound at Location (or activate Audio Component).
+
+Spawn Emitter at Location (or activate Particle Component).
+
+Update Score.
 
 Destroy Actor.
 
-Create BP_Cylinder (Collectible: +25 Points)
+Screenshot 2025-09-19 120644
 
-Create Blueprint Actor → BP_Cylinder.
+========== Version 3 =============
 
-Add:
+In Version 3, we display the Score on a UI Widget instead of just Print String.
 
-Static Mesh (Cylinder).
+==> Create a new Widget Blueprint → WBP_ScoreUI.
 
-Capsule Collision (or Box, adjusted to size).
+Add a Text Block → name it ScoreText.
 
-📌 Logic
+Bind its text to the Score variable.
 
-On Begin Overlap:
+==> In BP_GameMode:
 
-Cast to BP_GameMode.
+On BeginPlay → Create Widget (WBP_ScoreUI).
 
-Score = Score + 25.
+Add to Viewport.
 
-Destroy Actor.
+Now the Score updates in real time on the HUD.
 
-Create BP_Cone (Collectible: -15 Points)
+Screenshot 2025-09-19 120815
 
-Create Blueprint Actor → BP_Cone.
+========== Version 4 =============
 
-Add:
+In Version 4, we expand the system with respawning collectibles instead of destroying them.
 
-Static Mesh (Cone).
+==> Instead of Destroy Actor:
 
-Collision component.
+Add a Set Actor Hidden in Game (true) node.
 
-📌 Logic
+Add a Set Actor Enable Collision (false) node.
 
-On Begin Overlap:
+Add a Delay (e.g., 5 seconds).
 
-Cast to BP_GameMode.
+After delay:
 
-Score = Score - 15.
+Set Actor Hidden in Game (false).
 
-Destroy Actor.
+Set Actor Enable Collision (true).
 
-Test in the Level
+📌 This makes collectibles disappear when collected and reappear later.
 
-Place BP_Sphere, BP_Cube, BP_Cylinder, and BP_Cone into your level.
+Screenshot 2025-09-19 121022
 
-Press Play → move the player over them.
+========== Version 5 =============
 
-Watch the Score update (check with Print String or add a UI Widget later for a proper HUD).
+In Version 5, we introduce special items and more advanced logic:
 
-Versions / Expansions
-Version 1: Basic Collectibles
+Golden Sphere → gives bonus +50.
 
-Items update the score correctly when collected.
+Poison Cube → removes 25 points and plays a red explosion.
 
-Version 2: Add Sound & FX
+Combo Mechanic → If player collects 3 cylinders in a row, grant an extra +100 bonus.
 
-Add a Sound Cue (pickup sound) in each collectible.
+==> Add new Blueprints based on existing ones.
+==> Use Boolean variables or Counters to track combo conditions.
+==> Expand GameMode logic for bonuses/penalties.
 
-Add a Particle System (spark effect).
+Screenshot 2025-09-19 121223
 
-Version 3: Add a HUD
+Why this works
 
-Create a Widget Blueprint (BP_ScoreUI).
+Each collectible updates a shared Score variable inside the GameMode.
 
-Bind the Score variable to a Text Block.
+Using Overlap events ensures the player must physically touch the object.
 
-Add it to the viewport in the GameMode or PlayerController.
+Destroying or hiding actors simulates collection.
 
-Version 4: Respawning Items
+UI binding allows real-time feedback.
 
-Instead of destroying items, hide them temporarily.
-
-Use a Delay node to respawn them after X seconds.
+Expanding with FX, respawn, and combo rules makes the system scalable.
