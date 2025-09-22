@@ -140,6 +140,8 @@ A lightweight project that demonstrates **Blueprint-to-Blueprint communication u
      * Then call \*\*UpdateTotalCollected()\`.
      * Destroy Actor.
 
+<img width="1657" height="437" alt="image" src="https://github.com/user-attachments/assets/d0519900-61fe-492e-8f05-3648d82cbd30" />
+
 ---
 
 ## STEP 5 — Update **BP\_ThirdPersonGameMode**
