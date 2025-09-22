@@ -81,6 +81,8 @@ A lightweight project that demonstrates **Blueprint-to-Blueprint communication u
      * Call **UpdateScore(+5)**.
      * Then call \*\*UpdateTotalCollected()\`.
      * Destroy Actor.
+       
+<img width="1641" height="398" alt="image" src="https://github.com/user-attachments/assets/50c37582-658b-48ff-ac0c-8d56a89a1462" />
 
 ---
 
