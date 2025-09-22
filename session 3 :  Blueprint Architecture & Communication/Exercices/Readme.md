@@ -52,6 +52,9 @@ A lightweight project that demonstrates **Blueprint-to-Blueprint communication u
      * From Cast success → call \*\*UpdateTotalCollected()\`.
      * Finally → **Destroy Actor** (remove the sphere).
 
+<img width="1637" height="392" alt="image" src="https://github.com/user-attachments/assets/81aedd3e-7468-4b5b-a6ff-b596efea2d10" />
+
+
 ---
 
 ## STEP 2 — Create **BP\_Cube (+5 Points)**
