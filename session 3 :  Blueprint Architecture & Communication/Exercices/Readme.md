@@ -258,6 +258,8 @@ Instead, the **Door** holds a **direct reference to a Key** and checks if it was
 
          * If true → Play Timeline to rotate/open door.
          * If false → Print `"Door is locked – find the key."`.
+           
+<img width="1382" height="400" alt="image" src="https://github.com/user-attachments/assets/b06da1c1-96f7-48a3-9ee2-3b94eaf1024c" />
 
 ---
 
