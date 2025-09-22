@@ -111,6 +111,8 @@ A lightweight project that demonstrates **Blueprint-to-Blueprint communication u
      * Then call \*\*UpdateTotalCollected()\`.
      * Destroy Actor.
 
+<img width="1670" height="377" alt="image" src="https://github.com/user-attachments/assets/8920bd8e-959d-4bd0-b104-468c1318c72d" />
+
 ---
 
 ## STEP 4 — Create **BP\_Cone (-15 Points)**
