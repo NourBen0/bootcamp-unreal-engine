@@ -181,4 +181,94 @@ A lightweight project that demonstrates **Blueprint-to-Blueprint communication u
    * Collected actor is destroyed.
 
 
-👉 Do you want me to continue this guide into **Part 2 (GameInstance version)** so the score persists across multiple levels, in the same style?
+Perfect 👍 Thanks for clarifying.
+So in **Part 2**, we build the **Key & Door system** **without Casting at all**.
+That means we’ll use **direct references (editable variables)** between Blueprints instead of Casts or GameMode logic.
+
+Here’s the guide in the same style:
+
+---
+
+# Collectibles System – Part 2: **Keys & Doors **
+
+In this version, we introduce a **Key** and a **Door**.
+The player must collect the **Key** before the **Door** can be opened.
+
+Unlike other approaches, here we avoid **Casting** and **GameMode references**.
+Instead, the **Door** holds a **direct reference to a Key** and checks if it was collected.
+
+---
+
+## STEP 1 — Create **BP\_Key**
+
+**Goal:** an actor that can be picked up and sets itself as "collected".
+
+1. **Blueprint**
+
+   * Add → **Blueprint Class → Actor** → name it `BP_Key`.
+
+2. **Components**
+
+   * **Static Mesh** → assign a key mesh.
+   * **Sphere Collision** → surrounds the mesh for pickup.
+
+3. **Variables**
+
+   * `bIsCollected` (Boolean, default = false).
+
+4. **Logic (Event Graph)**
+
+   * `OnComponentBeginOverlap`:
+
+     * Branch → check `Other Actor == Player Character`.
+     * If **true**:
+
+       * Set `bIsCollected = true`.
+       * Optionally Print `"Key collected!"`.
+       * Hide the mesh or call `DestroyActor`.
+
+---
+
+## STEP 2 — Create **BP\_Door**
+
+**Goal:** door only opens if the linked key has been collected.
+
+1. **Blueprint**
+
+   * Add → **Blueprint Class → Actor** → name it `BP_Door`.
+
+2. **Components**
+
+   * **Static Mesh** → assign a door mesh.
+   * **Box Collision** → surrounds the doorway.
+
+3. **Variables**
+
+   * `LinkedKey` (BP\_Key Reference → Instance Editable).
+   * `bIsOpen` (Boolean, default = false).
+
+4. **Logic (Event Graph)**
+
+   * `OnComponentBeginOverlap`:
+
+     * Branch → check `Other Actor == Player Character`.
+     * If **true**:
+
+       * Check if `LinkedKey → bIsCollected == true`.
+
+         * If true → Play Timeline to rotate/open door.
+         * If false → Print `"Door is locked – find the key."`.
+
+---
+
+## STEP 3 — Level Setup
+
+1. Place a **BP\_Key** somewhere in the level.
+2. Place a **BP\_Door** in front of an area.
+3. In the **Details Panel** of BP\_Door → assign the placed **BP\_Key** to its `LinkedKey` variable.
+
+Now the Door knows **which Key** it depends on.
+
+
+
+
