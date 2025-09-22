@@ -1,8 +1,3 @@
-Perfect 👍 thanks for clarifying the style.
-Here’s your **Collectibles Project (Scoring System)** written in the **same README style** you showed:
-
----
-
 # Collectibles System – Part 1: **Scoring with Casting (via GameMode)**
 
 A lightweight project that demonstrates **Blueprint-to-Blueprint communication using Casting** in Unreal Engine. You’ll build a small scene where:
@@ -172,14 +167,5 @@ A lightweight project that demonstrates **Blueprint-to-Blueprint communication u
    * Total Collected increments.
    * Collected actor is destroyed.
 
----
-
-## Why this is “Casting via GameMode”
-
-* Each collectible uses **OnOverlap → Cast to GameMode** to reach `BP_ThirdPersonGameMode`.
-* No direct references are stored inside the collectible.
-* GameMode acts as the **central authority** for score and progress tracking.
-
----
 
 👉 Do you want me to continue this guide into **Part 2 (GameInstance version)** so the score persists across multiple levels, in the same style?
