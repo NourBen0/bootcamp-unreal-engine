@@ -226,6 +226,8 @@ Instead, the **Door** holds a **direct reference to a Key** and checks if it was
        * Set `bIsCollected = true`.
        * Optionally Print `"Key collected!"`.
        * Hide the mesh or call `DestroyActor`.
+       * 
+<img width="1277" height="457" alt="image" src="https://github.com/user-attachments/assets/fe2c3260-f9c2-4407-9170-02a588a541c4" />
 
 ---
 
