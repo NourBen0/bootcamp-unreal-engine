@@ -159,10 +159,14 @@ A lightweight project that demonstrates **Blueprint-to-Blueprint communication u
 
      * `Score += Delta`.
      * (Optional) Print Score to screen.
+     <img width="1047" height="458" alt="image" src="https://github.com/user-attachments/assets/ebd7d19d-8dea-40fa-a7d2-4bb65d71d85c" />
+
    * **UpdateTotalCollected()**
 
      * `TotalCollected += 1`.
      * (Optional) Print Total Collected.
+       <img width="1041" height="492" alt="image" src="https://github.com/user-attachments/assets/041ace24-036e-4f81-80e9-02d201555b93" />
+
 
 ---
 
