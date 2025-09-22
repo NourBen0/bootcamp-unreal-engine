@@ -1,11 +1,11 @@
-Practical Session: Collectible Blueprints and Score System
+# Practical Session: Collectible Blueprints and Score System
 
-In this session, we will practice key Blueprint concepts through the exercise Collectible Blueprints and Score System.
+In this session, we will practice key Blueprint concepts through the exercise **Collectible Blueprints and Score System**.
 
 The exercise is broken down into steps to help you fully understand the underlying logic, including collision detection, variables, and inter-Blueprint communication.
 
-Step-by-Step Guide
-Create a GameMode with a Score Variable
+# Step-by-Step Guide
+## STEP 1 : Create a GameMode with a Score Variable  
 
 ==> Create a new Blueprint Class
 ==> Choose GameModeBase as the parent class
@@ -21,11 +21,7 @@ Make it Public (Instance Editable) if needed for debugging.
 
 📌 This variable will track the total player score whenever a collectible is picked up.
 
-Screenshot 2025-09-19 120001
 
-Version 1: Basic Collectibles
-
-In Version 1, we will create simple collectibles that update the Score variable when the player overlaps with them.
 
 BP_Sphere (+10 Points)
 
@@ -48,7 +44,6 @@ Add a Print String to display “Score: X”.
 
 Add Destroy Actor so the sphere disappears when collected.
 
-Screenshot 2025-09-19 120245
 
 BP_Cube (+5 Points)
 
